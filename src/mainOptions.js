@@ -1,4 +1,3 @@
-// Importing required modules
 const readline = require("readline-sync");
 const { exploreTown } = require("./exploreTown");
 const talkToLocals = require("./talkToLocals");
@@ -28,7 +27,6 @@ const mainOptions = (
 
   const allOptionsExhausted = options.length === 0;
 
-  // If all other options are exhausted, automatically move to exploreTown
   if (allOptionsExhausted) {
     exploreTown(
       playerName,
@@ -51,7 +49,6 @@ const mainOptions = (
     console.log(`${index + 1}. ${option}`);
   });
 
-  // Add a blank line or separator line
   console.log("\n--------------------\n");
 
   const choice = readline.question("Enter the number of your choice: ");
@@ -77,12 +74,12 @@ const mainOptions = (
           playerName,
           mainOptions,
           visitedCrowd,
-          talkedToKids, // Keep the current value of talkedToKids
+          talkedToKids,
           checkedInventory,
           triedResting,
           counter1,
           counter2,
-          true // Set initial to true for the first call
+          true
         );
       } else if (!checkedInventory) {
         console.log(
@@ -92,7 +89,7 @@ const mainOptions = (
           playerName,
           visitedCrowd,
           talkedToKids,
-          true, // Update checkedInventory to true
+          true,
           triedResting,
           counter1,
           counter2
@@ -112,7 +109,7 @@ const mainOptions = (
           visitedCrowd,
           talkedToKids,
           checkedInventory,
-          true, // Update triedResting to true
+          true,
           counter1,
           counter2
         );

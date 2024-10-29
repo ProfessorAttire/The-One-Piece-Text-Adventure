@@ -1,22 +1,16 @@
-// Importing the readline-sync module for synchronous input
 const readline = require("readline-sync");
 
-// Defining the talkToLocals function
 const talkToLocals = (
-  playerName, // Player's name
-  mainOptions, // Function to return to main options
-  visitedCrowd, // Boolean flag for visiting the crowd
-  talkedToKids, // Boolean flag for talking to kids
-  checkedInventory, // Boolean flag for checking inventory
-  triedResting, // Boolean flag for trying to rest
-  counter1, // Counter variable 1
-  counter2, // Counter variable 2
-  initial = true // Boolean flag for initial conversation
+  playerName,
+  mainOptions,
+  visitedCrowd,
+  talkedToKids,
+  checkedInventory,
+  triedResting,
+  counter1,
+  counter2,
+  initial = true
 ) => {
-  // Debugging statement to check the value of initial currently disabled
-  /*console.log(`Debug: initial = ${initial}`);*/
-
-  // Initial conversation with the kids
   if (initial) {
     console.log("You overhear a conversation between two kids:");
     console.log(
@@ -28,20 +22,16 @@ const talkToLocals = (
     console.log("Is there anything else you would like to know?");
   }
 
-  // Add a blank line or separator line
   console.log("\n--------------------\n");
 
-  // Print the options for the player to choose from
   console.log("1. Where is the execution taking place?");
   console.log("2. Why is the King of Pirates being executed?");
   console.log("3. Who is the King of Pirates?");
   console.log("4. Go back");
 
-  // Prompt the user to enter their choice
   const choice = readline.question("Enter the number of your choice: ");
   console.log();
 
-  // Handle the user's choice using a switch statement
   switch (choice) {
     case "1":
       console.log(
@@ -66,7 +56,7 @@ const talkToLocals = (
       mainOptions(
         playerName,
         visitedCrowd,
-        true, // Update talkedToKids to true
+        true,
         checkedInventory,
         triedResting,
         counter1,
@@ -84,12 +74,11 @@ const talkToLocals = (
         triedResting,
         counter1,
         counter2,
-        false // Set initial to false for subsequent interactions
+        false
       );
       return;
   }
 
-  // Recursively call talkToLocals to allow the player to make another choice
   talkToLocals(
     playerName,
     mainOptions,
@@ -99,9 +88,8 @@ const talkToLocals = (
     triedResting,
     counter1,
     counter2,
-    false // Set initial to false for subsequent interactions
+    false
   );
 };
 
-// Exporting the talkToLocals function as a module
 module.exports = talkToLocals;
