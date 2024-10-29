@@ -13,6 +13,9 @@ const talkToLocals = (
   counter2, // Counter variable 2
   initial = true // Boolean flag for initial conversation
 ) => {
+  // Debugging statement to check the value of initial currently disabled
+  /*console.log(`Debug: initial = ${initial}`);*/
+
   // Initial conversation with the kids
   if (initial) {
     console.log("You overhear a conversation between two kids:");

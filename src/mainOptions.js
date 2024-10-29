@@ -77,12 +77,12 @@ const mainOptions = (
           playerName,
           mainOptions,
           visitedCrowd,
-          true, // Update talkedToKids to true
+          talkedToKids, // Keep the current value of talkedToKids
           checkedInventory,
           triedResting,
           counter1,
           counter2,
-          allOptionsExhausted
+          true // Set initial to true for the first call
         );
       } else if (!checkedInventory) {
         console.log(
